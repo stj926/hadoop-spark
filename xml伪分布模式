@@ -96,11 +96,24 @@ YARN_NODEMANAGER_USER=root
 
 
 SPARK
-export SCALA_HOME=/usr/scala/scala-2.12.1
-export JAVA_HOME=/usr/java/jdk1.8.0_121
-export HADOOP_HOME=/usr/hadoop/hadoop-2.7.3
-export HADOOP_CONF_DIR=/usr/hadoop/hadoop-2.7.3/etc/hadoop
-export SPARK_MASTER_IP=linux1991
-export SPARK_LOCAL_IP=linux1991
-export SPAPK_LOCAL_DIRS=/usr/spark/spark-2.1.0-bin-hadoop2.7
+spark-env.sh
+
+export SCALA_HOME=/usr/local/scala
+export JAVA_HOME=/usr/local/jdk
+export HADOOP_HOME=/usr/local/hadoop
+export HADOOP_CONF_DIR=/usr/local/hadoop/etc/hadoop
+export SPARK_MASTER_IP=
+export SPARK_LOCAL_IP=
+export SPAPK_LOCAL_DIRS=/usr/local/spark
 export SPARK_DRIVER_MEMORY=1G
+
+
+WARN  Utils:66 - Your hostname, localhost.localdomain resolves to a loopback address: 127.0.0.1; using 192.168.5.200 instead (on interface ens33)
+WARN  Utils:66 - Set SPARK_LOCAL_IP if you need to bind to another address
+WARN  NativeCodeLoader:62 - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+
+hadoop-env.sh
+export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
+export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib"
