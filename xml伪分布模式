@@ -1,3 +1,4 @@
+HADOOP
 hadoop-env.sh
 JAVA_HOME=/usr/local/jdk
 
@@ -93,3 +94,13 @@ HADOOP_SECURE_DN_USER=yarn
 YARN_NODEMANAGER_USER=root
 
 
+
+SPARK
+export SCALA_HOME=/usr/scala/scala-2.12.1
+export JAVA_HOME=/usr/java/jdk1.8.0_121
+export HADOOP_HOME=/usr/hadoop/hadoop-2.7.3
+export HADOOP_CONF_DIR=/usr/hadoop/hadoop-2.7.3/etc/hadoop
+export SPARK_MASTER_IP=linux1991
+export SPARK_LOCAL_IP=linux1991
+export SPAPK_LOCAL_DIRS=/usr/spark/spark-2.1.0-bin-hadoop2.7
+export SPARK_DRIVER_MEMORY=1G
