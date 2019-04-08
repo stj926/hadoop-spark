@@ -4,7 +4,7 @@ jupyter notebook --generate-config
 #密码设置
 jupyter notebook password
 #配置文件设置
-#vim jupyter_notebook_config.py
+#vim .jupyter/jupyter_notebook_config.py
 c.NotebookApp.ip='192.168.12.7'
 #c.NotebookApp.open_browser=False
 #c.NotebookApp.port=8888
