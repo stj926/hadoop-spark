@@ -1,7 +1,7 @@
 HADOOP
 hadoop-env.sh
-JAVA_HOME=/usr/local/jdk
-
+export JAVA_HOME=/usr/local/jdk
+#JAVA_HOME=/usr/local/jdk
 
 
 hdfs-stie.xml
