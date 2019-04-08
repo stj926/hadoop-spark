@@ -1,16 +1,23 @@
-方法一：(可用于远程)
+方法一：
 #vim /etc/profile
 export PYSPARK_DRIVER_PYTHON=ipython
 export PYSPARK_DRIVER_PYTHON_OPTS="notebook"
 
 
 jupyter notebook --generate-config
-#jupyter_notebook_config.py
+#vim jupyter_notebook_config.py
 c.NotebookApp.ip='192.168.12.7'
-c.NotebookApp.open_browser=False
-c.NotebookApp.port=8888
+#c.NotebookApp.open_browser=False
+#c.NotebookApp.port=8888
 
 方法二：
+jupyter notebook --generate-config
+jupyter notebook password
+#vim jupyter_notebook_config.py
+c.NotebookApp.ip='192.168.12.7'
+#c.NotebookApp.open_browser=False
+#c.NotebookApp.port=8888
+
 import findspark
 findspark.init()
 import pyspark
