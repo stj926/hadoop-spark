@@ -121,4 +121,4 @@ To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLeve
 
 hadoop-env.sh
 export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
-export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib"
+export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib:$HADOOP_COMMON_LIB_NATIVE_DIR"
