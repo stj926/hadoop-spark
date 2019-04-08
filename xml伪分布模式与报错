@@ -68,32 +68,27 @@ yarn-site.xml
 
 
 错误处理
-    Starting namenodes on [localhost]
-    ERROR: Attempting to operate on hdfs namenode as root
-    ERROR: but there is no HDFS_NAMENODE_USER defined. Aborting operation.
-    Starting datanodes
-    ERROR: Attempting to operate on hdfs datanode as root
-    ERROR: but there is no HDFS_DATANODE_USER defined. Aborting operation.
-    Starting secondary namenodes [bogon]
-    ERROR: Attempting to operate on hdfs secondarynamenode as root
-    ERROR: but there is no HDFS_SECONDARYNAMENODE_USER defined. Aborting operation.
-    处理1
-        $ vim sbin/start-dfs.sh
-        $ vim sbin/stop-dfs.sh 
-    两处增加以下内容
+Starting namenodes on [localhost]
+ERROR: Attempting to operate on hdfs namenode as root
+ERROR: but there is no HDFS_NAMENODE_USER defined. Aborting operation.
+Starting datanodes
+ERROR: Attempting to operate on hdfs datanode as root
+ERROR: but there is no HDFS_DATANODE_USER defined. Aborting operation.
+Starting secondary namenodes [bogon]
+ERROR: Attempting to operate on hdfs secondarynamenode as root
+ERROR: but there is no HDFS_SECONDARYNAMENODE_USER defined. Aborting operation.
+处理1
+$ vim sbin/start-dfs.sh
+$ vim sbin/stop-dfs.sh 
+两处增加以下内容
 export HDFS_DATANODE_USER=root
 export HDFS_DATANODE_SECURE_USER=hdfs
 export HDFS_NAMENODE_USER=root
 export HDFS_SECONDARYNAMENODE_USER=root
-
-#HDFS_DATANODE_USER=root
-#HDFS_DATANODE_SECURE_USER=hdfs
-#HDFS_NAMENODE_USER=root
-#HDFS_SECONDARYNAMENODE_USER=root (下同)
-    处理2
-        $ vim sbin/start-yarn.sh
-        $ vim sbin/stop-yarn.sh 
-    两处增加以下内容
+处理2
+$ vim sbin/start-yarn.sh
+$ vim sbin/stop-yarn.sh 
+两处增加以下内容
 export YARN_RESOURCEMANAGER_USER=root
 export HDFS_DATANODE_SECURE_USER=yarn
 export YARN_NODEMANAGER_USER=root
@@ -107,8 +102,8 @@ export SCALA_HOME=/usr/local/scala
 export JAVA_HOME=/usr/local/jdk
 export HADOOP_HOME=/usr/local/hadoop
 export HADOOP_CONF_DIR=/usr/local/hadoop/etc/hadoop
-export SPARK_MASTER_IP=
-export SPARK_LOCAL_IP=
+#export SPARK_MASTER_IP=
+#export SPARK_LOCAL_IP=
 export SPAPK_LOCAL_DIRS=/usr/local/spark
 export SPARK_DRIVER_MEMORY=1G
 
@@ -118,7 +113,7 @@ WARN  Utils:66 - Set SPARK_LOCAL_IP if you need to bind to another address
 WARN  NativeCodeLoader:62 - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
 Setting default log level to "WARN".
 To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
-
-hadoop-env.sh
+-->
+hadoop-env.sh增加以下内容
 export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
 export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib:$HADOOP_COMMON_LIB_NATIVE_DIR"
