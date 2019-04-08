@@ -20,9 +20,9 @@ export HADOOP_HOME=/usr/local/hadoop
 
 export PATH=$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$PATH
 
-export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
+#export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
 
-export YARN_CONF_DIR=$HADOOP_HOME/etc/hadoop
+#export YARN_CONF_DIR=$HADOOP_HOME/etc/hadoop
 
 #spark
 
