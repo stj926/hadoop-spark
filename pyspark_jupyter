@@ -1,16 +1,4 @@
-方法一：(存在错误)
-#vim /etc/profile
-export PYSPARK_DRIVER_PYTHON=ipython
-export PYSPARK_DRIVER_PYTHON_OPTS="notebook"
-
-jupyter notebook --generate-config
-#vim jupyter_notebook_config.py
-c.NotebookApp.ip='192.168.12.7'
-#c.NotebookApp.open_browser=False
-#c.NotebookApp.port=8888
-
-
-方法二：
+方法一：
 jupyter notebook --generate-config
 jupyter notebook password
 #vim jupyter_notebook_config.py
@@ -21,3 +9,15 @@ c.NotebookApp.ip='192.168.12.7'
 import findspark
 findspark.init()
 import pyspark
+
+
+方法二：(存在错误)
+#vim /etc/profile
+export PYSPARK_DRIVER_PYTHON=ipython
+export PYSPARK_DRIVER_PYTHON_OPTS="notebook"
+
+jupyter notebook --generate-config
+#vim jupyter_notebook_config.py
+c.NotebookApp.ip='192.168.12.7'
+#c.NotebookApp.open_browser=False
+#c.NotebookApp.port=8888
