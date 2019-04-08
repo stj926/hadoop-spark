@@ -2,6 +2,8 @@ HADOOP
 hadoop-env.sh
 export JAVA_HOME=/usr/local/jdk
 #JAVA_HOME=/usr/local/jdk
+#export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
+#export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib:$HADOOP_COMMON_LIB_NATIVE_DIR"
 
 
 hdfs-stie.xml
@@ -68,6 +70,7 @@ yarn-site.xml
 
 
 错误处理
+
 Starting namenodes on [localhost]
 ERROR: Attempting to operate on hdfs namenode as root
 ERROR: but there is no HDFS_NAMENODE_USER defined. Aborting operation.
@@ -93,7 +96,7 @@ export YARN_RESOURCEMANAGER_USER=root
 export HDFS_DATANODE_SECURE_USER=yarn
 export YARN_NODEMANAGER_USER=root
 
-
+###########################################################################################################
 
 SPARK
 spark-env.sh
@@ -117,3 +120,5 @@ To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLeve
 hadoop-env.sh增加以下内容
 export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
 export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib:$HADOOP_COMMON_LIB_NATIVE_DIR"
+spark-env.sh增加以下内容
+LD_LIBRARY_PATH=$HADOOP_HOME/lib/native
