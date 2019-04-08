@@ -81,17 +81,22 @@ yarn-site.xml
         $ vim sbin/start-dfs.sh
         $ vim sbin/stop-dfs.sh 
     两处增加以下内容
-HDFS_DATANODE_USER=root
-HADOOP_SECURE_DN_USER=hdfs
-HDFS_NAMENODE_USER=root
-HDFS_SECONDARYNAMENODE_USER=root 
+export HDFS_DATANODE_USER=root
+export HADOOP_SECURE_DN_USER=hdfs
+export HDFS_NAMENODE_USER=root
+export HDFS_SECONDARYNAMENODE_USER=root
+
+#HDFS_DATANODE_USER=root
+#HADOOP_SECURE_DN_USER=hdfs
+#HDFS_NAMENODE_USER=root
+#HDFS_SECONDARYNAMENODE_USER=root (下同)
     处理2
         $ vim sbin/start-yarn.sh
         $ vim sbin/stop-yarn.sh 
     两处增加以下内容
-YARN_RESOURCEMANAGER_USER=root
-HADOOP_SECURE_DN_USER=yarn
-YARN_NODEMANAGER_USER=root
+export YARN_RESOURCEMANAGER_USER=root
+export HADOOP_SECURE_DN_USER=yarn
+export YARN_NODEMANAGER_USER=root
 
 
 
