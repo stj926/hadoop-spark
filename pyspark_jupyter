@@ -9,6 +9,8 @@ c.NotebookApp.ip='192.168.12.7'
 #c.NotebookApp.open_browser=False
 #c.NotebookApp.port=8888
 
+
+#jupyter-notebook --allow-root
 import findspark
 findspark.init()
 import pyspark
