@@ -207,8 +207,5 @@ hdfs pipes -writer <class> Java RecordWriter
 hdfs pipes -program <executable> 可执行程序的URI
 
 hdfs pipes -reduces <num> reduce个数
---------------------- 
-作者：上好佳00美可馨 
-来源：CSDN 
+
 原文：https://blog.csdn.net/m0_38003171/article/details/79086780 
-版权声明：本文为博主原创文章，转载请附上博文链接！
