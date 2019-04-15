@@ -166,6 +166,11 @@ export SPARK_LOCAL_IP=localhost
 export SPAPK_LOCAL_DIRS=/usr/local/spark
 export SPARK_DRIVER_MEMORY=1G
 
+#vim slaves
+master
+slave1
+slave2
+
 
 WARN  Utils:66 - Your hostname, localhost.localdomain resolves to a loopback address: 127.0.0.1; using 192.168.5.200 instead (on interface ens33)
 WARN  Utils:66 - Set SPARK_LOCAL_IP if you need to bind to another address
