@@ -100,7 +100,7 @@ export JAVA_HOME=/usr/local/jdk
 </configuration>
 
 #workers
-localhost
+master
 slave1
 slave2
 
