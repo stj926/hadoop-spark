@@ -1,1 +1,118 @@
+1 ssh设置
+检查是否能互连
+ssh master
+ssh slave1
+ssh slave2
 
+2 vim /etc/hosts
+
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+192.168.5.111 master
+192.168.5.124 slave1
+192.168.5.139 slave2
+
+hostname master
+
+3 
+#hadoop-env.sh
+export JAVA_HOME=/usr/local/jdk
+
+#vim core-site.xml
+<configuration>
+    <!-- 指定 namenode 的通信地址 默认 8020 端口 -->
+    <property>
+        <name>fs.defaultFS</name>
+        <value>hdfs://master/</value>
+    </property>
+
+    <!-- 指定 hadoop 运行时产生文件的存储路径 -->
+    <property>
+        <name>hadoop.tmp.dir</name>
+        <value>/usr/local/hadoop/tmp</value>
+    </property>
+</configuration>
+
+#hdfs-site.xml
+<configuration>
+    
+    <!-- namenode 上存储 hdfs 名字空间元数据-->
+    <property>
+        <name>dfs.namenode.name.dir</name>
+        <value>/usr/local/hadoop/namenode</value>
+    </property>
+
+    <!-- datanode 上数据块的物理存储位置-->
+    <property>
+        <name>dfs.datanode.data.dir</name>
+        <value>/usr/local/hadoop/datanode</value>
+    </property>
+
+    <!-- 设置 hdfs 副本数量 -->
+    <property>
+        <name>dfs.replication</name>
+        <value>1</value>
+    </property>
+
+</configuration>
+
+#mapred-site.xml
+<configuration>
+
+    <!-- 指定yarn运行-->
+    <property>
+        <name>mapreduce.framework.name</name
+        <value>yarn</value>
+    </property>
+
+    <property>
+        <name>yarn.app.mapreduce.am.env</name>
+        <value>HADOOP_MAPRED_HOME=/usr/local/hadoop</value>
+    </property>
+
+    <property>
+        <name>mapreduce.map.env</name>
+        <value>HADOOP_MAPRED_HOME=/usr/local/hadoop</value>
+    </property>
+
+    <property>
+        <name>mapreduce.reduce.env</name>
+        <value>HADOOP_MAPRED_HOME=/usr/local/hadoop</value>
+    </property>
+
+</configuration>
+
+#vim yarn-site.xml
+<configuration>
+<!-- Site specific YARN configuration properties -->
+    <!-- 指定ResourceManager的地址 -->
+    <property>
+        <name>yarn.resourcemanager.hostname</name>
+        <value>master</value>
+    </property>
+
+    <!-- reducer取数据的方式是mapreduce_shuffle -->  
+    <property>
+        <name>yarn.nodemanager.aux-services</name>
+        <value>mapreduce_shuffle</value>
+    </property>
+
+</configuration>
+
+#workers
+localhost
+slave1
+slave2
+
+start-dfs.sh 和 stop-dfs.sh
+export HDFS_DATANODE_USER=root
+export HDFS_DATANODE_SECURE_USER=hdfs
+export HDFS_NAMENODE_USER=root
+export HDFS_SECONDARYNAMENODE_USER=root
+
+start-yarn.sh 和 stop-yarn.sh
+export YARN_RESOURCEMANAGER_USER=root
+export HADOOP_SECURE_DN_USER=yarn
+export YARN_NODEMANAGER_USER=root
+
+4 启动hadoop
