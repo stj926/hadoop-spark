@@ -161,8 +161,8 @@ export SCALA_HOME=/usr/local/scala
 export JAVA_HOME=/usr/local/jdk
 export HADOOP_HOME=/usr/local/hadoop
 export HADOOP_CONF_DIR=/usr/local/hadoop/etc/hadoop
-#export SPARK_MASTER_IP=localhost
-#export SPARK_LOCAL_IP=localhost
+export SPARK_MASTER_IP=master
+export SPARK_LOCAL_IP=localhost
 export SPAPK_LOCAL_DIRS=/usr/local/spark
 export SPARK_DRIVER_MEMORY=1G
 
