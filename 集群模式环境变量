@@ -11,7 +11,7 @@ export PATH=$SCALA_HOME/bin:$PATH
 export HADOOP_HOME=/usr/local/hadoop
 export PATH=$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$PATH
 export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
-#export YARN_CONF_DIR=$HADOOP_HOME/etc/hadoop
+#export YARN_CONF_DIR=$HADOOP_HOME/etc/hadoop（被HADOOP_CONF_DIR取代）
 
 #spark
 export SPARK_HOME=/usr/local/spark
