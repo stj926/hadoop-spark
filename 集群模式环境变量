@@ -16,7 +16,7 @@ export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
 #spark
 export SPARK_HOME=/usr/local/spark
 export PATH=$SPARK_HOME/bin:$PATH
-export PYTHONPATH=$SPARK_HOME/python:$SPARK_HOME/python/lib/py4j-0.10.7-src.zip:$PYTHONPATH #py4j
+export PYTHONPATH=$SPARK_HOME/python:$SPARK_HOME/python/lib/py4j-0.10.7-src.zip:$PYTHONPATH #py4j根据版本修改
 export PATH=$SPARK_HOME/python:$PATH
 
 
