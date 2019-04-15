@@ -18,6 +18,8 @@ export SPARK_HOME=/usr/local/spark
 export PATH=$SPARK_HOME/bin:$PATH
 export PYTHONPATH=$SPARK_HOME/python:$SPARK_HOME/python/lib/py4j-0.10.7-src.zip:$PYTHONPATH #py4j
 export PATH=$SPARK_HOME/python:$PATH
+
+
 ssh ssh-keygen -t rsa -P ''
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 
