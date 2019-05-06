@@ -1,28 +1,28 @@
 方法一：
-#生成配置文件
+# 生成配置文件
 jupyter notebook --generate-config
-#密码设置
+# 密码设置
 jupyter notebook password
-#配置文件设置
-#vim .jupyter/jupyter_notebook_config.py
+# 配置文件设置
+# vim .jupyter/jupyter_notebook_config.py
 c.NotebookApp.ip='192.168.12.7'
-#c.NotebookApp.open_browser=False
-#c.NotebookApp.port=8888
+# c.NotebookApp.open_browser=False
+# c.NotebookApp.port=8888
 
 
-#jupyter-notebook --allow-root
+# jupyter-notebook --allow-root
 import findspark
 findspark.init()
 import pyspark
 
 
 方法二：(存在错误)
-#vim /etc/profile
+# vim /etc/profile
 export PYSPARK_DRIVER_PYTHON=ipython
 export PYSPARK_DRIVER_PYTHON_OPTS="notebook"
 
 jupyter notebook --generate-config
-#vim jupyter_notebook_config.py
+# vim jupyter_notebook_config.py
 c.NotebookApp.ip='192.168.12.7'
-#c.NotebookApp.open_browser=False
-#c.NotebookApp.port=8888
+# c.NotebookApp.open_browser=False
+# c.NotebookApp.port=8888
