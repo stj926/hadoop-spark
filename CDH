@@ -147,7 +147,7 @@ yum -y install chkconfig python bind-utils psmisc libxslt zlib sqlite cyrus-sasl
 mkdir -p /var/www/html/cloudera-repos/cm6/
 将下载的cm包文件移到此目录下:/var/www/html/cloudera-repos/cm6/
 cd /var/www/html/cloudera-repos/cm6/
-创建repodata： createrepo
+创建repodata： mkdir repodata
 vim /etc/yum.repos.d/cloudera-manager.repo
 #####
 [cloudera-manager]
