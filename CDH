@@ -25,3 +25,23 @@ chmod 600 ~/.ssh/authorized_keys
 scp -r ~/.ssh/ root@slaver1:~/.ssh/
 
 # 配置NTP服务
+timedatectl set-timezone Asia/Shanghai
+
+
+时间
+yum install -y ntp
+# vi /etc/ntp.conf
+#####mastor节点#####
+#注释原有配置
+#server 0.centos.pool.ntp.org iburst
+#server 1.centos.pool.ntp.org iburst
+#server 2.centos.pool.ntp.org iburst
+#server 3.centos.pool.ntp.org iburst
+server ntp.aliyun.com #添加指向阿里云ntp服务
+#####slaver节点#####
+#注释原有配置
+#server 0.centos.pool.ntp.org iburst
+#server 1.centos.pool.ntp.org iburst
+#server 2.centos.pool.ntp.org iburst
+#server 3.centos.pool.ntp.org iburst
+server mastor 指向mastor
