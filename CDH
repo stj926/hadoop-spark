@@ -1,7 +1,7 @@
 静态ip设置
 # /etc/sysconfig/network-scripts/ifcfg-ens33
 BOOTPROTO=static
-ONBOOT=YES
+ONBOOT=yes
 IPADDR=192.168.79.128
 NETMASK=255.255.255.0
 GATEWAY=192.168.79.2
