@@ -135,21 +135,31 @@ GRANT ALL ON *.* TO 'oozie'@'%' identified by '123456';
 flush privileges;
 
 
-#安装Httpd服务（mastor）
+# 安装Httpd服务（mastor）
 yum install httpd
 systemctl start httpd.service
 systemctl enable httpd.service 设置httpd服务开机自启
 
 
-#安装第三方依赖包
+# 安装第三方依赖包
 yum -y install chkconfig python bind-utils psmisc libxslt zlib sqlite cyrus-sasl-plain cyrus-sasl-gssapi fuse fuse-libs redhat-lsb
 （不要）#插件
 （不要）yum install cloudera-manager-daemons cloudera-manager-agent cloudera-manager-server --skip-broken --nogpgcheck
 
 
-#配置Cloudera Manager包yum源（mastor）
+# 配置Cloudera Manager包yum源（mastor）
 mkdir -p /var/www/html/cloudera-repos/
 将下载的cm包文件移到此目录下:
 mv cm6 /var/www/html/cloudera-repos/
 cd /var/www/html/cloudera-repos/cm6/
 创建repodata： createrepo
+vim /etc/yum.repos.d/cloudera-manager.repo
+#####
+[cloudera-manager]
+name = Cloudera Manager, Version
+baseurl = http://mastor/cloudera-repos/cm6/
+gpgcheck = 1
+#####
+
+yum clean all
+yum makecache
