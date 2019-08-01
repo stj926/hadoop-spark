@@ -64,6 +64,7 @@ grep "vm.swappiness" * -R 查询出后依次修改为0
 
 
 # 禁用透明页（all）
+#touch /var/lock/subsys/local
 echo never > /sys/kernel/mm/transparent_hugepage/defrag
 echo never > /sys/kernel/mm/transparent_hugepage/enabled
 永久生效 在/etc/rc.local 添加上面命令
