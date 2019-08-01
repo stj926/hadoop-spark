@@ -1,4 +1,4 @@
-静态ip设置
+静态ip设置（all）
 # /etc/sysconfig/network-scripts/ifcfg-ens33
 BOOTPROTO=static
 ONBOOT=yes
@@ -11,34 +11,40 @@ service network restart 重启网络生效
 yum install -y net-tools ifconfig查看设置
 
 
-# vim /etc/hosts追加
+# vim /etc/hosts追加（all）
 192.168.11.111 mastor
 192.168.11.112 slaver1
 
 
-# 关闭防火墙、禁止防火墙开机自启
+# 关闭防火墙、禁止防火墙开机自启（all）
 systemctl stop firewalld     关闭防火墙
 systemctl disable firewalld  禁止防火墙开机自启
 vim /etc/selinux/config —>   SELINUX=disabled (修改)
 
 
-# ssh免密登录
+# ssh免密登录（all）
 ssh-keygen -t rsa
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 chmod 600 ~/.ssh/authorized_keys
 scp -r ~/.ssh/ root@slaver1:~/.ssh/
 
 
-# swqppiness参数修改
+# swqppiness参数修改（all）
 
 
-# 禁用透明页
+# 禁用透明页（all）
 
 
-#jdk安装
+#jdk安装（all）
 
 
-# 配置NTP服务
+# 创建/usr/share/java目录，将mysql-jdbc包放过去（all）
+mkdir -p /usr/share/java
+mv /opt/mysql-j/mysql-connector-java-5.1.34.jar /usr/share/java/
+mysql-connector-java-5.1.34.jar 一定要命名为mysql-connector-java.jar
+
+
+# 配置NTP服务（all）
 timedatectl set-timezone Asia/Shanghai
 
 时间
@@ -65,3 +71,6 @@ ntpdc -c loopinfo #查看与时间同步服务器的时间偏差
 ntpq -p #查看当前同步的时间服务器
 ntpstat #查看状态
 配置成功状态（服务开启后前面出现*说明成功
+
+
+#安装Httpd服务（mastor）
