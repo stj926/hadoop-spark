@@ -108,30 +108,25 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY 'ShouTj@123456';
 （不要）#####安装MySQL-shared-compat或MySQL-shared软件包(这是Cloudera Manager Agent软件包安装所必需的)：
 （不要）#####yum install MySQL-shared-advanced
 
+vi /etc/mysql.cnf
 
 #创建cdh默认的数据库
-GRANT ALL ON *.* TO 'root'@'%' identified by 'ShouTj@123456' WITH GRANT OPTION;
-flush privileges;
-
-create database scm DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
-create database amon DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
-create database rman DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
-create database hue DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
-create database metastore DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
-create database sentry DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
-create database nav DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
-create database navms DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
-create database oozie DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
-
-GRANT ALL ON *.* TO 'scm'@'%' identified by 'ShouTj@123456';
-GRANT ALL ON *.* TO 'amon'@'%' identified by 'ShouTj@123456';
-GRANT ALL ON *.* TO 'rman'@'%' identified by 'ShouTj@123456';
-GRANT ALL ON *.* TO 'hue'@'%' identified by 'ShouTj@123456';
-GRANT ALL ON *.* TO 'hive'@'%' identified by 'ShouTj@123456';
-GRANT ALL ON *.* TO 'sentry'@'%' identified by 'ShouTj@123456';
-GRANT ALL ON *.* TO 'nav'@'%' identified by 'ShouTj@123456';
-GRANT ALL ON *.* TO 'navms'@'%' identified by 'ShouTj@123456';
-GRANT ALL ON *.* TO 'oozie'@'%' identified by 'ShouTj@123456';
+create database scm default character set utf8 default collate utf8_general_ci;
+grant all on scm.* to 'scm'@'%' identified by 'ShouTj@123456';
+create database amon default character set utf8 default collate utf8_general_ci;
+grant all on amon.* to 'amon'@'%' identified by 'ShouTj@123456';
+create database rman default character set utf8 default collate utf8_general_ci;
+grant all on rman.* to 'rman'@'%' identified by 'ShouTj@123456';
+create database hue default character set utf8 default collate utf8_general_ci;
+grant all on hue.* to 'hue'@'%' identified by 'ShouTj@123456';
+create database metastore default character set utf8 default collate utf8_general_ci;
+grant all on metastore.* to 'hive'@'%' identified by 'ShouTj@123456';
+create database sentry default character set utf8 default collate utf8_general_ci;
+grant all on sentry.* to 'sentry'@'%' identified by 'ShouTj@123456';
+create database nav default character set utf8 default collate utf8_general_ci;
+grant all on nav.* to 'nav'@'%' identified by 'ShouTj@123456';
+create database oozie default character set utf8 default collate utf8_general_ci;
+grant all on oozie.* to 'oozie'@'%' identified by 'ShouTj@123456';
 
 flush privileges;
 
