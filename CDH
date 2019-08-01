@@ -96,28 +96,90 @@ mysql-connector-java-5.1.34.jar 一定要命名为mysql-connector-java.jar
 rpm -e --nodeps mariadb-libs-5.5.60-1.el7_5.x86_64
 wget http://repo.mysql.com/mysql57-community-release-el7-8.noarch.rpm
 rpm -ivh mysql57-community-release-el7-8.noarch.rpm
-yum -y install mysql-server
-systemctl restart mysqld.service
-grep "password" /var/log/mysqld.log     　　　　　　　　　　　　（后面会出现一个mql密码用以下面的登陆）
-mysql -u root -p
-alter user 'root'@'localhost' identified by 'Root!!2018';
+yum -y install mysql-community-server
+##### my.cnf #####
+[mysqld]
+transaction-isolation = READ-COMMITTED
+# Disabling symbolic-links is recommended to prevent assorted security risks;
+# to do so, uncomment this line:
+# symbolic-links = 0
 
-进行创建用户，授权等操作
-grant all on *.* to 'root'@'%' identified by 'Root!!2018' with grant option; -- 授权
-改密码复杂度　　　　　　
-CREATE USER 'scm'@'%' IDENTIFIED BY '123456'; --创建一个新用户，就使用这个用户名，和密码，后面cm的元数据库会用到
-grant all on *.* to 'scm'@'%' identified by '123456' with grant option;-- 授权
-CREATE USER 'lpy'@'%' IDENTIFIED BY '123456'; --创建一个新用户，用户名和密码可以自定义，后面安装hive，oozie会用到
-grant all on *.* to 'lpy'@'%' identified by '123456' with grant option;--授权
-flush privileges; -- 刷新权限
-用上面自定义的数据库用户lpy登陆，在MySQL中创建几个数据库备用，数据库名称可以自定义。
-mysql -u lpy -p
-create database hive;
-create database hue;
-create database ooz;
- 使用scm用户登录MySQL，创建scm数据库备用。
-mysql -u scm -p
-create database scm;
+key_buffer_size = 32M
+max_allowed_packet = 32M
+thread_stack = 256K
+thread_cache_size = 64
+query_cache_limit = 8M
+query_cache_size = 64M
+query_cache_type = 1
+
+max_connections = 550
+#expire_logs_days = 10
+#max_binlog_size = 100M
+
+#log_bin should be on a disk with enough free space. Replace '/var/lib/mysql/mysql_binary_log' with an appropriate path for your system
+#and chown the specified folder to the mysql user.
+log_bin=/var/lib/mysql/mysql_binary_log
+
+# For MySQL version 5.1.8 or later. For older versions, reference MySQL documentation for configuration help.
+binlog_format = mixed
+
+read_buffer_size = 2M
+read_rnd_buffer_size = 16M
+sort_buffer_size = 8M
+join_buffer_size = 8M
+
+# InnoDB settings
+innodb_file_per_table = 1
+innodb_flush_log_at_trx_commit  = 2
+innodb_log_buffer_size = 64M
+innodb_buffer_pool_size = 4G
+innodb_thread_concurrency = 8
+innodb_flush_method = O_DIRECT
+innodb_log_file_size = 512M
+
+[mysqld_safe]
+log-error=/var/log/mysqld.log
+pid-file=/var/run/mysqld/mysqld.pid
+sql_mode=STRICT_ALL_TABLES
+##### my.cnf #####
+
+systemctl start mysqld.service #启动数据库
+# systemctl restart mysqld.service #重启数据库
+systemctl enable mysqld #开机自启
+grep "password" /var/log/mysqld.log （后面会出现一个mql密码用以下面的登陆）
+mysql -u root -p
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'ShouTj@123456';
+卸载yum源防止自动更新 yum -y remove mysql57-community-release-el7-8.noarch
+安装MySQL-shared-compat或MySQL-shared软件包(这是Cloudera Manager Agent软件包安装所必需的)：
+yum install MySQL-shared-advanced
+
+
+#创建cdh默认的数据库
+GRANT ALL ON *.* TO 'root'@'%' identified by '123456' WITH GRANT OPTION;
+flush privileges;
+
+create database scm DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
+create database amon DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
+create database rman DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
+create database hue DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
+create database metastore DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
+create database sentry DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
+create database nav DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
+create database navms DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
+create database oozie DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
+
+GRANT ALL ON *.* TO 'scm'@'%' identified by '123456';
+GRANT ALL ON *.* TO 'amon'@'%' identified by '123456';
+GRANT ALL ON *.* TO 'rman'@'%' identified by '123456';
+GRANT ALL ON *.* TO 'hue'@'%' identified by '123456';
+GRANT ALL ON *.* TO 'hive'@'%' identified by '123456';
+GRANT ALL ON *.* TO 'sentry'@'%' identified by '123456';
+GRANT ALL ON *.* TO 'nav'@'%' identified by '123456';
+GRANT ALL ON *.* TO 'navms'@'%' identified by '123456';
+GRANT ALL ON *.* TO 'oozie'@'%' identified by '123456';
+
+flush privileges;
+
 
 
 
