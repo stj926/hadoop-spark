@@ -146,6 +146,12 @@ yum -y install chkconfig python bind-utils psmisc libxslt zlib sqlite cyrus-sasl
 # 配置Cloudera Manager包yum源（mastor）
 mkdir -p /var/www/html/cloudera-repos/cm6/
 将下载的cm包文件移到此目录下:/var/www/html/cloudera-repos/cm6/
+#####
+cloudera-manager-agent-6.2.0-968826.el7.x86_64.rpm
+cloudera-manager-daemons-6.2.0-968826.el7.x86_64.rpm
+cloudera-manager-server-6.2.0-968826.el7.x86_64.rpm
+cloudera-manager-server-db-2-6.2.0-968826.el7.x86_64.rpm
+#####
 cd /var/www/html/cloudera-repos/cm6/
 yum install createrepo
 创建repodata： createrepo .
