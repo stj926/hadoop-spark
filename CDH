@@ -7,3 +7,20 @@ NETMASK=255.255.255.0
 GATEWAY=192.168.79.2
 DNS1=192.168.79.2
 
+
+# vim /etc/hosts追加
+192.168.11.111 mastor
+192.168.11.112 slaver1
+
+# 关闭防火墙、禁止防火墙开机自启
+systemctl stop firewalld     关闭防火墙
+systemctl disable firewalld  禁止防火墙开机自启
+vim /etc/selinux/config —>   SELINUX=disabled (修改)
+
+# ssh免密登录
+ssh-keygen -t rsa
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+chmod 600 ~/.ssh/authorized_keys
+scp -r ~/.ssh/ root@slaver1:~/.ssh/
+
+# 配置NTP服务
