@@ -175,8 +175,14 @@ rpm --import https://archive.cloudera.com/cm6/6.2.0/redhat7/yum/RPM-GPG-KEY-clou
 sudo yum install cloudera-manager-daemons cloudera-manager-agent cloudera-manager-server
 安装完CM后/opt/ 下会出现cloudera目录
 mv /opt/parcels/* /opt/cloudera/parcel-repo # 将parcel包移动到指定位置
+#####
+-rw-r--r-- 1 root root 2.0G Aug  1 06:05 CDH-6.2.0-1.cdh6.2.0.p0.967373-el7.parcel
+-rw-r--r-- 1 root root   40 Aug  1 04:34 CDH-6.2.0-1.cdh6.2.0.p0.967373-el7.parcel.sha1
+-rw-r--r-- 1 root root   64 Aug  1 04:28 CDH-6.2.0-1.cdh6.2.0.p0.967373-el7.parcel.sha256
+-rw-r--r-- 1 root root  33K Aug  1 04:45 manifest.json
+#####
 在/opt/cloudera/parcel-repo执行以下命令：
-sha1sum CDH-6.2.0-1.cdh6.2.0.p0.967373-el7.parcel | awk ‘{ print $1 }’ > CDH-6.2.0-1.cdh6.2.0.p0.967373-el7.parcel.sha
+sha1sum CDH-6.2.0-1.cdh6.2.0.p0.967373-el7.parcel | awk '{ print $1 }' > CDH-6.2.0-1.cdh6.2.0.p0.967373-el7.parcel.sha
 
 执行初始化脚本:
 /opt/cloudera/cm/schema/scm_prepare_database.sh mysql scm scm password
