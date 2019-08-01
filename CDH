@@ -88,7 +88,7 @@ java -version验证
 
 # 创建/usr/share/java目录，将mysql-jdbc包放过去（all）
 mkdir -p /usr/share/java
-mv /opt/mysql-j/mysql-connector-java-5.1.34.jar /usr/share/java/
+mv /opt/mysql-j/mysql-connector-java-5.1.34.jar /usr/share/java/mysql-connector-java.jar
 mysql-connector-java-5.1.34.jar 一定要命名为mysql-connector-java.jar
 
 
