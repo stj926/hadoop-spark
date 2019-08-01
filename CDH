@@ -6,17 +6,21 @@ IPADDR=192.168.79.128
 NETMASK=255.255.255.0
 GATEWAY=192.168.79.2
 DNS1=192.168.79.2
-# service network restart 重启网络生效
-# yum install -y net-tools ifconfig查看设置
+
+service network restart 重启网络生效
+yum install -y net-tools ifconfig查看设置
+
 
 # vim /etc/hosts追加
 192.168.11.111 mastor
 192.168.11.112 slaver1
 
+
 # 关闭防火墙、禁止防火墙开机自启
 systemctl stop firewalld     关闭防火墙
 systemctl disable firewalld  禁止防火墙开机自启
 vim /etc/selinux/config —>   SELINUX=disabled (修改)
+
 
 # ssh免密登录
 ssh-keygen -t rsa
@@ -24,13 +28,22 @@ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 chmod 600 ~/.ssh/authorized_keys
 scp -r ~/.ssh/ root@slaver1:~/.ssh/
 
+
+# swqppiness参数修改
+
+
+# 禁用透明页
+
+
+#jdk安装
+
+
 # 配置NTP服务
 timedatectl set-timezone Asia/Shanghai
 
-
 时间
 yum install -y ntp
-# vi /etc/ntp.conf
+vi /etc/ntp.conf
 #####mastor节点#####
 #注释原有配置
 #server 0.centos.pool.ntp.org iburst
@@ -45,3 +58,10 @@ server ntp.aliyun.com #添加指向阿里云ntp服务
 #server 2.centos.pool.ntp.org iburst
 #server 3.centos.pool.ntp.org iburst
 server mastor 指向mastor
+
+service ntpd restart #重新启动ntp服务
+systemctl enable ntpd.service #设置开机自启
+ntpdc -c loopinfo #查看与时间同步服务器的时间偏差
+ntpq -p #查看当前同步的时间服务器
+ntpstat #查看状态
+配置成功状态（服务开启后前面出现*说明成功
