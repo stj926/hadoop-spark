@@ -29,21 +29,6 @@ chmod 600 ~/.ssh/authorized_keys
 scp -r ~/.ssh/ root@slaver1:~/.ssh/
 
 
-# swqppiness参数修改（all）
-
-
-# 禁用透明页（all）
-
-
-#jdk安装（all）
-
-
-# 创建/usr/share/java目录，将mysql-jdbc包放过去（all）
-mkdir -p /usr/share/java
-mv /opt/mysql-j/mysql-connector-java-5.1.34.jar /usr/share/java/
-mysql-connector-java-5.1.34.jar 一定要命名为mysql-connector-java.jar
-
-
 # 配置NTP服务（all）
 timedatectl set-timezone Asia/Shanghai
 
@@ -71,6 +56,24 @@ ntpdc -c loopinfo #查看与时间同步服务器的时间偏差
 ntpq -p #查看当前同步的时间服务器
 ntpstat #查看状态
 配置成功状态（服务开启后前面出现*说明成功
+
+
+# swqppiness参数修改（all）
+
+
+# 禁用透明页（all）
+
+
+#jdk安装（all）
+
+
+# 创建/usr/share/java目录，将mysql-jdbc包放过去（all）
+mkdir -p /usr/share/java
+mv /opt/mysql-j/mysql-connector-java-5.1.34.jar /usr/share/java/
+mysql-connector-java-5.1.34.jar 一定要命名为mysql-connector-java.jar
+
+
+
 
 
 #安装Httpd服务（mastor）
