@@ -104,8 +104,8 @@ grep "password" /var/log/mysqld.log （后面会出现一个mql密码用以下�
 mysql -u root -p
 ALTER USER 'root'@'localhost' IDENTIFIED BY 'ShouTj@123456';
 卸载yum源防止自动更新 yum -y remove mysql57-community-release-el7-8.noarch
-不要#####安装MySQL-shared-compat或MySQL-shared软件包(这是Cloudera Manager Agent软件包安装所必需的)：
-不要#####yum install MySQL-shared-advanced
+（不要）#####安装MySQL-shared-compat或MySQL-shared软件包(这是Cloudera Manager Agent软件包安装所必需的)：
+（不要）#####yum install MySQL-shared-advanced
 
 
 #创建cdh默认的数据库
@@ -143,8 +143,8 @@ systemctl enable httpd.service 设置httpd服务开机自启
 
 #安装第三方依赖包
 yum -y install chkconfig python bind-utils psmisc libxslt zlib sqlite cyrus-sasl-plain cyrus-sasl-gssapi fuse fuse-libs redhat-lsb
-#插件
-yum install cloudera-manager-daemons cloudera-manager-agent cloudera-manager-server --skip-broken --nogpgcheck
+（不要）#插件
+（不要）yum install cloudera-manager-daemons cloudera-manager-agent cloudera-manager-server --skip-broken --nogpgcheck
 
 
 
