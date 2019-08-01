@@ -92,7 +92,7 @@ mv /opt/mysql-j/mysql-connector-java-5.1.34.jar /usr/share/java/mysql-connector-
 mysql-connector-java-5.1.34.jar 一定要命名为mysql-connector-java.jar
 
 
-#安装mysql（all）
+#安装mysql（mastor）
 卸载mariadb：rpm -qa|grep mariadb
 rpm -e --nodeps mariadb-libs-5.5.60-1.el7_5.x86_64
 wget http://repo.mysql.com/mysql57-community-release-el7-8.noarch.rpm
@@ -137,7 +137,7 @@ systemctl start httpd.service
 systemctl enable httpd.service 设置httpd服务开机自启
 
 
-# 安装第三方依赖包
+# 安装第三方依赖包（all）
 yum -y install chkconfig python bind-utils psmisc libxslt zlib sqlite cyrus-sasl-plain cyrus-sasl-gssapi fuse fuse-libs redhat-lsb
 （不要）#插件
 （不要）yum install cloudera-manager-daemons cloudera-manager-agent cloudera-manager-server --skip-broken --nogpgcheck
@@ -158,3 +158,10 @@ gpgcheck = 1
 
 yum clean all
 yum makecache
+
+
+# 导入GPG key（mastor）
+rpm --import https://archive.cloudera.com/cm6/6.2.0/redhat7/yum/RPM-GPG-KEY-cloudera
+
+
+# 安装 Cloudera Manager（mastor）
