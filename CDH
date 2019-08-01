@@ -72,6 +72,17 @@ echo never > /sys/kernel/mm/transparent_hugepage/enabled
 
 
 #jdk安装（all）
+rpm -qa | grep java # 查询已安装的java
+yum remove java* # 卸载
+rpm -ivh jdk-8u181-linux-x64.rpm
+vi /etc/profile
+#java
+export JAVA_HOME=/usr/java/jdk1.8.0_181-amd64
+export PATH=$PATH:$JAVA_HOME/bin
+export CLASSPATH=.:$CLASSPATH:$JAVA_HOME/lib
+
+source /etc/profile
+java -version验证
 
 
 # 创建/usr/share/java目录，将mysql-jdbc包放过去（all）
