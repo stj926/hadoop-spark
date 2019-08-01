@@ -60,7 +60,7 @@ ntpstat #查看状态
 
 # swqppiness参数修改（all）
 cd /usr/lib/tuned/
-grep “vm.swappiness” * -R 查询出后依次修改为0
+grep "vm.swappiness" * -R 查询出后依次修改为0
 
 
 # 禁用透明页（all）
