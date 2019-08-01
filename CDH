@@ -200,3 +200,4 @@ service cloudera-scm-server start
 密码admin
 
 注意：web中rpm安装路径需要修改！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+     mysql需要配置
