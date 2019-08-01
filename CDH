@@ -64,6 +64,11 @@ grep “vm.swappiness” * -R 查询出后依次修改为0
 
 
 # 禁用透明页（all）
+echo never > /sys/kernel/mm/transparent_hugepage/defrag
+echo never > /sys/kernel/mm/transparent_hugepage/enabled
+永久生效 在/etc/rc.local 添加上面命令
+给与可执行权限：chmod +x /etc/rc.d/rc.local
+
 
 
 #jdk安装（all）
