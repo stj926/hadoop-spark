@@ -146,6 +146,7 @@ yum -y install chkconfig python bind-utils psmisc libxslt zlib sqlite cyrus-sasl
 # 配置Cloudera Manager包yum源（mastor）
 mkdir -p /var/www/html/cloudera-repos/cm6/
 将下载的cm包文件移到此目录下:/var/www/html/cloudera-repos/cm6/
+同时还需要下载一个asc文件，同样保存到cloudera-repos目录下
 #####
 cloudera-manager-agent-6.2.0-968826.el7.x86_64.rpm
 cloudera-manager-daemons-6.2.0-968826.el7.x86_64.rpm
@@ -198,3 +199,4 @@ service cloudera-scm-server start
 用户名admin
 密码admin
 
+注意：web中rpm安装路径需要修改！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
