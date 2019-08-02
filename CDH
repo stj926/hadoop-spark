@@ -207,7 +207,7 @@ yum install createrepo
 vim /etc/yum.repos.d/cloudera-manager.repo
 #####
 [cloudera-manager]
-name = Cloudera Manager, Version
+name = Cloudera Manager, Version6
 baseurl = http://mastor/cloudera-repos/cm6/
 gpgcheck = 1
 #####
