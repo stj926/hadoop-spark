@@ -243,9 +243,9 @@ service cloudera-scm-server start
 用户名admin
 密码admin
 
-注意：web中rpm安装路径需要修改！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
-     mysql需要配置
+注意：web中rpm源安装路径需要修改！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
 
 
 
+https://www.cnblogs.com/swordfall/p/10816797.html
 https://blog.csdn.net/oschina_41140683/article/details/81211635
