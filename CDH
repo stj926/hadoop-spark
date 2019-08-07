@@ -247,6 +247,7 @@ service cloudera-scm-server start
 用户名admin
 密码admin
 
+http://mastor/cloudera-repos/cm6
 注意：web中rpm源安装路径需要修改！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
 
 
