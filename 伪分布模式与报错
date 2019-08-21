@@ -126,4 +126,66 @@ export LD_LIBRARY_PATH=$HADOOP_HOME/lib/native
 ###########################################################################################################
 
 HIVE
+
+cp hive-default.xml.template hive-site.xml
+
 hive-site.xml
+
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?><!--
+   Licensed to the Apache Software Foundation (ASF) under one or more
+   contributor license agreements.  See the NOTICE file distributed with
+   this work for additional information regarding copyright ownership.
+   The ASF licenses this file to You under the Apache License, Version 2.0
+   (the "License"); you may not use this file except in compliance with
+   the License.  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+--><configuration>
+  <!-- WARNING!!! This file is auto generated for documentation purposes ONLY! -->
+  <!-- WARNING!!! Any changes you make to this file will be ignored by Hive.   -->
+  <!-- WARNING!!! You must make your changes in hive-site.xml instead.         -->
+  <!-- Hive Execution Parameters -->
+
+        <!-- 插入一下代码 -->
+    <property>
+        <name>javax.jdo.option.ConnectionUserName</name>
+        <value>root</value>
+    </property>
+    <property>
+        <name>javax.jdo.option.ConnectionPassword</name>
+        <value>ShouTj@123456</value>
+    </property>
+   <property>
+        <name>javax.jdo.option.ConnectionURL</name>
+        <value>jdbc:mysql://localhost:3306/hive</value>
+    </property>
+    <property>
+        <name>javax.jdo.option.ConnectionDriverName</name>
+        <value>com.mysql.jdbc.Driver</value>
+    </property>
+        <!-- 到此结束代码 -->
+
+
+  <property>
+    <name>hive.exec.script.wrapper</name>
+    <value/>
+    <description/>
+  </property>
+ 
+复制mysql的驱动程序到hive/lib下面
+mysql-connector-java-5.1.18-bin.jar
+ 
+mysql下创建hive数据库
+/usr/local/hive/bin schematool -dbType mysql -initSchema
+ 
+ https://www.cnblogs.com/dxxblog/p/8193967.html
+ 
+ 
+ 
