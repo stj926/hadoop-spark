@@ -179,6 +179,14 @@ hive-site.xml
     <description/>
   </property>
  
+ 
+vim hive-env.sh
+HADOOP_HOME=/usr/local/hadoop
+export HIVE_CONF_DIR=/usr/local/hive/conf
+
+vim hive-log4j2.properties
+property.hive.log.dir =/usr/local/hive/logs
+ 
 复制mysql的驱动程序到hive/lib下面
 mysql-connector-java-5.1.18-bin.jar
  
