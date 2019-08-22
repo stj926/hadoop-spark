@@ -68,6 +68,8 @@ yarn-site.xml
 </configuration>
 
 
+初始化
+hdfs namenode -format
 
 错误处理
 
