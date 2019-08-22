@@ -211,6 +211,7 @@ name = Cloudera Manager, Version6
 baseurl = http://mastor/cloudera-repos/cm6/
 gpgcheck = 1
 #####
+注意路径
 
 yum clean all
 yum makecache
