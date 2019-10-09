@@ -1,0 +1,9 @@
+import org.apache.spark.{SparkConf, SparkContext}
+
+object WrodCount {
+  def main(args: Array[String]) = {
+//    val sparkConf = new SparkConf().setAppName("wordCount").setMaster("local[*]")
+//    val sparkContext = new SparkContext(sparkConf)
+//    println("hello world")
+  }
+}
