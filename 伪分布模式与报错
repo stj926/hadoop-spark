@@ -112,6 +112,8 @@ export HADOOP_CONF_DIR=/usr/local/hadoop/etc/hadoop
 export SPAPK_LOCAL_DIRS=/usr/local/spark
 export SPARK_DRIVER_MEMORY=1G
 
+export LD_LIBRARY_PATH=$HADOOP_HOME/lib/native
+
 
 WARN  Utils:66 - Your hostname, localhost.localdomain resolves to a loopback address: 127.0.0.1; using 192.168.5.200 instead (on interface ens33)
 WARN  Utils:66 - Set SPARK_LOCAL_IP if you need to bind to another address
